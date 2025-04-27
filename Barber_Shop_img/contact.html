@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        /* -- Contact Form -- */
+        #contact {
+            width: 100%;
+            padding: 80px 0;
+            background: #f9f9f9;
+        }
+
+        .contact-container {
+            width: 80%;
+            margin: auto;
+            text-align: center;
+        }
+
+        .contact-container h2 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .contact-container p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 40px;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #009688;
+            box-shadow: 0 0 8px #00968855;
+        }
+
+        .contact-form button {
+            background: #009688;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #00796b;
+            transform: scale(1.05);
+        }
+
+        /* Success Message Styling */
+        .success-message {
+            display: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 20px;
+            font-size: 18px;
+            text-align: center;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        /* Mobile Responsive */
+        @media screen and (max-width: 770px) {
+            .contact-container h2 {
+                font-size: 28px;
+            }
+            
+            .contact-container p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<section id="contact-form" style="padding: 50px; text-align: center;">
+    <h1>Contact Us</h1>
+    <p>We would love to hear from you!</p>
+
+    <form id="contactForm" style="max-width: 500px; margin: auto;">
+        <input type="text" id="name" name="name" placeholder="Your Name" required style="width:100%; padding:10px; margin:10px 0;">
+        <input type="email" id="email" name="email" placeholder="Your Email" required style="width:100%; padding:10px; margin:10px 0;">
+        <textarea id="message" name="message" placeholder="Your Message" required style="width:100%; padding:10px; margin:10px 0; height: 150px;"></textarea>
+        <button type="submit" style="padding: 10px 30px; background-color: #009688; color: white; border: none; cursor: pointer;">Send</button>
+    </form>
+    
+    <div id="successMessage" class="success-message">
+        Thank you for your message! We will get back to you soon.
+    </div>
+    
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent the actual form submission
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Basic validation
+            if (!name || !email || !message) {
+                alert('Please fill all fields');
+                return;
+            }
+            
+            // In a real application, you would send this data to your server
+            // Here we'll just simulate a successful submission
+            
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // Hide the form
+            document.getElementById('contactForm').style.display = 'none';
+            
+            // Optional: Log the form data to console (for testing)
+            console.log('Form submitted with:', { name, email, message });
+            
+            // Optional: Scroll to success message
+            document.getElementById('successMessage').scrollIntoView({
+                behavior: 'smooth'
+            });
+            
+            // Optional: Reset form (if you don't hide it)
+            // this.reset();
+        });
+    </script>
+</section>
+
+</body>
+</html>
