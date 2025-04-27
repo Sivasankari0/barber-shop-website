@@ -106,7 +106,8 @@
     <h1>Contact Us</h1>
     <p>We would love to hear from you!</p>
 
-    <form id="contactForm" style="max-width: 500px; margin: auto;">
+    <form method="POST" action="/submit-form" aria-label="Contact form" name="contact" data-netlify="true"id="contactForm" style="max-width: 500px; margin: auto;">
+        <input type="hidden" name="form name" value="contact"/>
         <input type="text" id="name" name="name" placeholder="Your Name" required style="width:100%; padding:10px; margin:10px 0;">
         <input type="email" id="email" name="email" placeholder="Your Email" required style="width:100%; padding:10px; margin:10px 0;">
         <textarea id="message" name="message" placeholder="Your Message" required style="width:100%; padding:10px; margin:10px 0; height: 150px;"></textarea>
